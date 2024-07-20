@@ -1,7 +1,9 @@
-import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
-import brasil from "../../assets/img/brasil.jpg";
-import eua from "../../assets/img/eua.jpg";
+import { FiSun } from "react-icons/fi";
+import { IoClose, IoMenu } from "react-icons/io5";
+import { LuMoonStar } from "react-icons/lu";
+import brasil from "../../assets/img/structure/brasil.jpg";
+import eua from "../../assets/img/structure/eua.jpg";
 interface OptionsProp {
   theme: string | null;
   setTheme: (theme: string) => void;
@@ -24,9 +26,9 @@ function Options({ setTheme, theme }: OptionsProp) {
     <>
       <button
         onClick={openMoreOptions}
-        className="hover:text-blue-700 text-blue-900 fixed right-6 top-36 p-2 border-2 hover:border-slate-400 border-slate-300 dark:border-neutral-800 dark:hover:border-neutral-500  rounded-2xl shadow-lg dark:shadow-black shadow-slate-300 transition delay-100 ease-linear"
+        className="dark:bg-neutral-900 bg-slate-50 hover:text-blue-700 text-blue-900 fixed right-6 top-36 p-2 border-2 hover:border-slate-400 border-slate-300 dark:border-neutral-800 dark:hover:border-neutral-500  rounded-2xl shadow-lg dark:shadow-black shadow-slate-200 transition delay-100 ease-linear"
       >
-        <Menu size={35} />
+        <IoMenu size={35} />
       </button>
       {isOpen && (
         <div className="dark:bg-neutral-900 bg-slate-50 fixed right-6 top-[114px] rounded-2xl shadow-md dark:shadow-black shadow-slate-300 p-2 border-2 dark:border-neutral-800 border-slate-200 flex items-center gap-2">
@@ -38,7 +40,7 @@ function Options({ setTheme, theme }: OptionsProp) {
                 }`}
                 onClick={toggleThemeLight}
               >
-                <Sun size={30} />
+                <FiSun size={30} />
               </button>
               <button
                 className={`p-0.5 rounded-full ${
@@ -46,20 +48,28 @@ function Options({ setTheme, theme }: OptionsProp) {
                 }`}
                 onClick={toggleThemeDark}
               >
-                <Moon size={30} />
+                <LuMoonStar size={30} />
               </button>
             </div>
             <div className="rounded-2xl shadow-md dark:shadow-black shadow-slate-300 w-28 h-11 border-2 dark:border-neutral-800 border-slate-200 flex items-center justify-between px-3 ">
               <button className="p-0.5 ">
-                <img src={eua} alt="" className="w-[2.15rem] h-8 rounded-full" />
+                <img
+                  src={eua}
+                  alt=""
+                  className="w-[2.15rem] h-8 rounded-full"
+                />
               </button>
               <button className="p-0.5 ">
-                <img src={brasil} alt="" className="w-[2.15rem] h-8 rounded-full" />
+                <img
+                  src={brasil}
+                  alt=""
+                  className="w-[2.15rem] h-8 rounded-full"
+                />
               </button>
             </div>
           </div>
           <button onClick={closeMoreOptions}>
-            <X size={35} className="hover:text-blue-700 text-blue-900" />
+            <IoClose size={35} className="hover:text-blue-700 text-blue-900" />
           </button>
         </div>
       )}
