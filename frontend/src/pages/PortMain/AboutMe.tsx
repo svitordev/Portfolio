@@ -1,11 +1,15 @@
 import myPhoto from "../../assets/img/structure/MyPhoto.jpg";
+import ButtonCV from "../../components/ButtonCV";
 function AboutMe() {
   return (
     <section
       id="aboutme"
       className="w-full py-16 px-[10%] flex justify-between items-center font-condensed text-xl text-justify border-b-[3px] border-blue-700"
     >
-      <img src={myPhoto} alt="" className="w-2/5 rounded-full self-end" />
+      <div className="w-2/5 flex flex-col space-y-6 items-center">
+        <img src={myPhoto} alt="" className="w-full rounded-full" />
+        <ButtonCV size="full">BAIXAR CV</ButtonCV>
+      </div>
       <div className="flex flex-col items-end gap-4 w-3/5">
         <h2 className="text-5xl bg-custom-gradient bg-clip-text text-transparent ">
           Sobre Mim
