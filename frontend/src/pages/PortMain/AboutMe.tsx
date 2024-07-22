@@ -8,7 +8,7 @@ function AboutMe() {
     >
       <div className="w-2/5 flex flex-col space-y-6 items-center">
         <img src={myPhoto} alt="" className="w-full rounded-full" />
-        <ButtonCV size="full"/>
+        <ButtonCV height="full"/>
       </div>
       <div className="flex flex-col items-end gap-4 w-3/5">
         <h2 className="text-5xl bg-custom-gradient bg-clip-text text-transparent ">
