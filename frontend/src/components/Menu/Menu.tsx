@@ -10,7 +10,7 @@ function Menu() {
         <LinkMenu href="#projects">PROJETOS</LinkMenu>
         <LinkMenu href="#contacts">CONTATO</LinkMenu>
       </ul>
-      <ButtonCV>BAIXAR CV</ButtonCV> 
+      <ButtonCV/> 
     </div>
   );
 }
