@@ -31,7 +31,7 @@ function Options({ setTheme, theme }: OptionsProp) {
         <IoMenu size={35} />
       </button>
       {isOpen && (
-        <div className="dark:bg-neutral-900 bg-slate-50 fixed right-6 top-[114px] rounded-2xl shadow-md dark:shadow-black shadow-slate-300 p-2 border-2 dark:border-neutral-800 border-slate-200 flex items-center gap-2">
+        <div className="dark:bg-neutral-900 bg-slate-50 fixed right-6 top-[114px] rounded-2xl shadow-md dark:shadow-neutral-950 shadow-slate-300 p-2 border-2 dark:border-neutral-800 border-slate-200 flex items-center gap-2 z-40">
           <div className="space-y-1.5">
             <div className="rounded-2xl shadow-md dark:shadow-black shadow-slate-300 w-28 h-11 border-2 dark:border-neutral-800 border-slate-200 flex items-center justify-between px-3">
               <button

@@ -1,5 +1,6 @@
 import Options from "../../components/Options";
 import AboutMe from "./AboutMe";
+import Contact from "./Contact";
 import Header from "./Header";
 import Home from "./Home";
 import Projects from "./Projects";
@@ -17,6 +18,7 @@ function PortMain({ setTheme, theme }: PortMainProp) {
       <Technologies/>
       <AboutMe/>
       <Projects/>
+      <Contact/>
     </>
   );
 }
