@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      const response = await fetch("/api/send-email.ts", {
+      const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
         alert("Erro ao enviar email");
       }
     } catch (error) {
-      alert(`Erro ao enviar o email, ${error}`);
+      console.log(`Erro ao enviar o email, ${error}`);
     }
   };
   return (
