@@ -18,3 +18,20 @@
   scroll-behavior: smooth;
   scroll-padding-top: 40px;
 }
+.toast-success-light {
+  color: #404040;
+  background-color: #e5e5e5; 
+}
+.toast-error-light {
+  color: #404040;
+  background-color: #e5e5e5; 
+}
+
+.toast-success-dark {
+  color: #e2e8f0;
+  background-color: #262626;
+}
+.toast-error-dark {
+  color: #e2e8f0;
+  background-color: #262626;
+}

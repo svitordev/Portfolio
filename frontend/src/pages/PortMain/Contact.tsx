@@ -1,6 +1,7 @@
-import React from "react";
+import emailjs from "@emailjs/browser";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { toast } from "react-toastify";
 import ButtonCV from "../../components/ButtonCV";
 
 type FormValues = {
@@ -8,32 +9,45 @@ type FormValues = {
   email: string;
   message: string;
 };
-
-const Contact: React.FC = () => {
+interface ContactProp {
+  theme: string | null;
+}
+const Contact = ({ theme }: ContactProp) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<FormValues>();
 
-  const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+  const sendEmail: SubmitHandler<FormValues> = (data) => {
+    const templateParams = {
+      name: data.name,
+      email: data.email,
+      message: data.message,
+    };
+    emailjs
+      .send(
+        "service_foycaua",
+        "template_k0rrk97",
+        templateParams,
+        "dhKybiheYpgMv58CS"
+      )
+      .then(() => {
+        toast.success("Email enviado com sucesso!", {
+          className:
+            theme === "dark" ? "toast-success-dark" : "toast-success-light",
+        });
+        reset();
+      })
+      .catch(() => {
+        toast.error("Erro ao enviar email.",{
+          className:
+            theme === "dark" ? "toast-error-dark" : "toast-error-light",
+        });
       });
-      if (response.ok) {
-        alert("Email enviado com sucesso");
-      } else {
-        alert("Erro ao enviar email");
-      }
-    } catch (error) {
-      console.log(`Erro ao enviar o email, ${error}`);
-    }
   };
+
   return (
     <section
       id="contacts"
@@ -72,7 +86,7 @@ const Contact: React.FC = () => {
         </ul>
         <ButtonCV height="full" />
       </div>
-      <form className="w-2/5 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <form className="w-2/5 space-y-6" onSubmit={handleSubmit(sendEmail)}>
         <div className="flex flex-col">
           <label htmlFor="name">Nome:</label>
           <input

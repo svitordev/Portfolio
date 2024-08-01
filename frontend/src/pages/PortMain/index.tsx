@@ -15,10 +15,10 @@ function PortMain({ setTheme, theme }: PortMainProp) {
       <Header />
       <Options theme={theme} setTheme={setTheme} />
       <Home />
-      <Technologies/>
-      <AboutMe/>
-      <Projects/>
-      <Contact/>
+      <Technologies />
+      <AboutMe />
+      <Projects />
+      <Contact theme={theme} />
     </>
   );
 }
