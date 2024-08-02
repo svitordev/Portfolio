@@ -51,18 +51,18 @@ const Contact = ({ theme }: ContactProp) => {
   return (
     <section
       id="contacts"
-      className="w-full py-16 px-[10%] flex justify-between items-start font-condensed text-justify"
+      className="w-full py-10 md:py-16 px-[10%] flex flex-col gap-10 md:flex-row justify-between items-start font-condensed text-center md:text-justify"
     >
-      <div className="gap-5 flex flex-col w-1/2">
-        <h2 className="text-5xl bg-custom-gradient bg-clip-text text-transparent ">
+      <div className="gap-5 flex flex-col md:w-1/2 items-center md:items-start">
+        <h2 className="text-4xl md:text-5xl  bg-custom-gradient bg-clip-text text-transparent ">
           Entre em contato
         </h2>
 
-        <p className="w-3/4">
+        <p className="md:w-3/4">
           Entre em contato se precisar tirar alguma dúvida ou contratar algum
           tipo de serviço.
         </p>
-        <ul className="space-y-1">
+        <ul className="md:space-y-1 flex md:flex-col items-center justify-center gap-5 md:gap-2">
           <li className="gap-2 items-center flex">
             <FaInstagram size={20} />
             <a
@@ -86,21 +86,21 @@ const Contact = ({ theme }: ContactProp) => {
         </ul>
         <ButtonCV height="full" />
       </div>
-      <form className="w-2/5 space-y-6" onSubmit={handleSubmit(sendEmail)}>
-        <div className="flex flex-col">
+      <form className="w-full md:w-2/5 space-y-6" onSubmit={handleSubmit(sendEmail)}>
+        <div className="flex flex-col items-start">
           <label htmlFor="name">Nome:</label>
           <input
-            className="border-2 border-blue-600 rounded-md py-1 px-2 text-neutral-700 outline-2 outline-blue-600 bg-slate-100"
+            className="w-full border-2 border-blue-600 rounded-md py-1 px-2 text-neutral-700 outline-2 outline-blue-600 bg-slate-100"
             type="text"
             id="name"
             {...register("name", { required: "Nome é obrigatório" })}
           />
           {errors.name && <span>{errors.name.message}</span>}
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col items-start">
           <label htmlFor="email">Email:</label>
           <input
-            className="border-2 border-blue-600 rounded-md py-1 px-2 text-neutral-700 outline-2 outline-blue-600 bg-slate-100"
+            className="w-full border-2 border-blue-600 rounded-md py-1 px-2 text-neutral-700 outline-2 outline-blue-600 bg-slate-100"
             type="text"
             id="email"
             {...register("email", {
@@ -113,10 +113,10 @@ const Contact = ({ theme }: ContactProp) => {
           />
           {errors.email && <p>{errors.email.message}</p>}
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col items-start">
           <label htmlFor="message">Mensagem:</label>
           <textarea
-            className="border-2 border-blue-600 rounded-md py-1 px-2 bg-slate-100 text-neutral-700 outline-2 outline-blue-600 h-32"
+            className="w-full border-2 border-blue-600 rounded-md py-1 px-2 bg-slate-100 text-neutral-700 outline-2 outline-blue-600 h-32"
             id="message"
             {...register("message", {
               required: "Mensagem é obrigatória",

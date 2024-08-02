@@ -16,7 +16,7 @@
 }
 *{
   scroll-behavior: smooth;
-  scroll-padding-top: 40px;
+  scroll-padding-top: 60px;
 }
 .toast-success-light {
   color: #404040;

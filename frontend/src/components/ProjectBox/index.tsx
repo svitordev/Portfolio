@@ -7,25 +7,27 @@ const ProjectBox: React.FC<ProjectProps> = ({ item }) => {
   const par = item.id % 2;
   return (
     <div
-      className={`w-full  flex gap-5 ${par === 0 ? "flex-row-reverse" : ""}`}
+      className={`w-full flex flex-col md:flex-row text-center md:text-start gap-5 ${
+        par === 0 ? "md:flex-row-reverse" : ""
+      }`}
     >
       <video
-        className="w-[45%] h-full  border-2 hover:border-slate-400 border-slate-300 dark:border-neutral-800 dark:hover:border-neutral-500  rounded-2xl shadow-lg shadow-gray-400 dark:shadow-gray-800"
+        className="md:w-[45%] h-full  border-2 hover:border-slate-400 border-slate-300 dark:border-neutral-800 dark:hover:border-neutral-500  rounded-2xl shadow-lg shadow-gray-400 dark:shadow-gray-800"
         controls
       >
         <source src={item.src} type="video/mp4" />
         Seu navegador não suporta a tag de vídeo.
       </video>
 
-      <div className="w-full flex flex-col items-start justify-start space-y-3">
+      <div className="w-full flex flex-col md:items-start md:justify-start space-y-3">
         <h3 className="text-2xl">{item.title}</h3>
         <p>{item.about}</p>
-        <div className="flex gap-2 flex-wrap">
-          {item.tecnologias.map((tecs) => (
-            <Tag>{tecs}</Tag>
+        <div className="flex gap-2 flex-wrap justify-center md:justify-start">
+          {item.tecnologias.map((tecs, index) => (
+            <Tag key={index}>{tecs}</Tag>
           ))}
         </div>
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 flex-wrap justify-center">
           {item.deploy && (
             <a
               href={item.deploy}
