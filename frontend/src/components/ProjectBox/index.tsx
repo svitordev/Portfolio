@@ -1,12 +1,20 @@
+import { useRef } from "react";
+import { AnimationBottom } from "../../animation/animation";
+import { ResetAnimationBottom } from "../../animation/resetAnimation";
 import { ProjectsProp } from "../../data/projects";
+import useIntersectionObserver from "../../intersection";
 import Tag from "../Tags";
 interface ProjectProps {
   item: ProjectsProp;
 }
 const ProjectBox: React.FC<ProjectProps> = ({ item }) => {
+  const boxRef = useRef(null);
+  const element = boxRef.current;
+  useIntersectionObserver({element, animate: AnimationBottom, reset: ResetAnimationBottom});
   const par = item.id % 2;
   return (
     <div
+      ref={boxRef}
       className={`w-full flex flex-col md:flex-row text-center md:text-start gap-5 ${
         par === 0 ? "md:flex-row-reverse" : ""
       }`}

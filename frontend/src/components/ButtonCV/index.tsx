@@ -4,7 +4,8 @@ interface LinkProps {
 function ButtonCV({ height }: LinkProps) {
   return (
     <a
-      href="#"
+      href="/curriculo_vitor.pdf"
+      download="devFrontendVitorSilvaCV.pdf"
       className={`${height === "full" ? "w-48" : ""} ${
         height === "micro" ? "w-36" : ""
       } ${

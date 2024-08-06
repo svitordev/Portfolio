@@ -1,8 +1,12 @@
 import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { AnimationLeft, AnimationRight } from "../../animation/animation";
+import { ResetAnimationLeft, ResetAnimationRight } from "../../animation/resetAnimation";
 import ButtonCV from "../../components/ButtonCV";
+import useIntersectionObserver from "../../intersection";
 
 type FormValues = {
   name: string;
@@ -41,28 +45,75 @@ const Contact = ({ theme }: ContactProp) => {
         reset();
       })
       .catch(() => {
-        toast.error("Erro ao enviar email.",{
+        toast.error("Erro ao enviar email.", {
           className:
             theme === "dark" ? "toast-error-dark" : "toast-error-light",
         });
       });
   };
-
+  const TitleRefLeft = useRef(null);
+  const pRefLeft = useRef(null);
+  const ulRefLeft = useRef(null);
+  useIntersectionObserver({
+    element: TitleRefLeft.current,
+    animate: AnimationLeft,
+    reset: ResetAnimationLeft,
+  });
+  useIntersectionObserver({
+    element: ulRefLeft.current,
+    animate: AnimationLeft,
+    reset: ResetAnimationLeft,
+  });
+  useIntersectionObserver({
+    element: pRefLeft.current,
+    animate: AnimationLeft,
+    reset: ResetAnimationLeft,
+  });
+  const box1right = useRef(null);
+  const box2right = useRef(null);
+  const box3right = useRef(null);
+  const box4right = useRef(null);
+  useIntersectionObserver({
+    element: box1right.current,
+    animate: AnimationRight,
+    reset: ResetAnimationRight,
+  });
+  useIntersectionObserver({
+    element: box2right.current,
+    animate: AnimationRight,
+    reset: ResetAnimationRight,
+  });
+  useIntersectionObserver({
+    element: box3right.current,
+    animate: AnimationRight,
+    reset: ResetAnimationRight,
+  });
+  useIntersectionObserver({
+    element: box4right.current,
+    animate: AnimationRight,
+    reset: ResetAnimationRight,
+  });
   return (
     <section
       id="contacts"
       className="w-full py-10 md:py-16 px-[10%] flex flex-col gap-10 md:flex-row justify-between items-start font-condensed text-center md:text-justify"
     >
       <div className="gap-5 flex flex-col md:w-1/2 items-center md:items-start">
-        <h2 className="text-4xl md:text-5xl  bg-custom-gradient bg-clip-text text-transparent ">
+        <h2
+          ref={TitleRefLeft}
+          className="text-4xl md:text-5xl  bg-custom-gradient bg-clip-text text-transparent "
+        >
           Entre em contato
         </h2>
 
-        <p className="md:w-3/4">
+        <p ref={pRefLeft} className="md:w-3/4">
           Entre em contato se precisar tirar alguma dúvida ou contratar algum
           tipo de serviço.
         </p>
-        <ul className="md:space-y-1 flex md:flex-col items-center justify-center gap-5 md:gap-2">
+        <ul
+          ref={ulRefLeft}
+          className="md:space-y-1 flex md:flex-col items-center justify-center gap-5 md:gap-2"
+        >
           <li className="gap-2 items-center flex">
             <FaInstagram size={20} />
             <a
@@ -86,8 +137,11 @@ const Contact = ({ theme }: ContactProp) => {
         </ul>
         <ButtonCV height="full" />
       </div>
-      <form className="w-full md:w-2/5 space-y-6" onSubmit={handleSubmit(sendEmail)}>
-        <div className="flex flex-col items-start">
+      <form
+        className="w-full md:w-2/5 space-y-6"
+        onSubmit={handleSubmit(sendEmail)}
+      >
+        <div ref={box1right} className="flex flex-col items-start">
           <label htmlFor="name">Nome:</label>
           <input
             className="w-full border-2 border-blue-600 rounded-md py-1 px-2 text-neutral-700 outline-2 outline-blue-600 bg-slate-100"
@@ -97,7 +151,7 @@ const Contact = ({ theme }: ContactProp) => {
           />
           {errors.name && <span>{errors.name.message}</span>}
         </div>
-        <div className="flex flex-col items-start">
+        <div ref={box2right} className="flex flex-col items-start">
           <label htmlFor="email">Email:</label>
           <input
             className="w-full border-2 border-blue-600 rounded-md py-1 px-2 text-neutral-700 outline-2 outline-blue-600 bg-slate-100"
@@ -113,7 +167,7 @@ const Contact = ({ theme }: ContactProp) => {
           />
           {errors.email && <p>{errors.email.message}</p>}
         </div>
-        <div className="flex flex-col items-start">
+        <div ref={box3right} className="flex flex-col items-start">
           <label htmlFor="message">Mensagem:</label>
           <textarea
             className="w-full border-2 border-blue-600 rounded-md py-1 px-2 bg-slate-100 text-neutral-700 outline-2 outline-blue-600 h-32"
@@ -125,6 +179,7 @@ const Contact = ({ theme }: ContactProp) => {
           {errors.message && <p>{errors.message.message}</p>}
         </div>
         <button
+          ref={box4right}
           className="bg-custom-gradient px-10 py-2 rounded-md border-2 dark:border-neutral-900 border-slate-50 dark:hover:border-white hover:border-neutral-500 text-white"
           type="submit"
         >
