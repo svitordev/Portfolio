@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import PortMain from "./pages/PortMain";
+import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import Options from "./components/Options";
+import PlusProjects from "./pages/PlusProjects";
+import PortMain from "./pages/PortMain";
 function App() {
   const [theme, setTheme] = useState("dark");
   useEffect(() => {
@@ -10,8 +13,12 @@ function App() {
   }, [theme]);
   return (
     <div className="dark:bg-neutral-900 bg-slate-50 text-neutral-700 dark:text-slate-200 min-h-screen">
-      <PortMain setTheme={setTheme} theme={theme}/>
-      <ToastContainer position="bottom-left"/>
+      <Routes>
+        <Route path="/" element={<PortMain theme={theme} />} />
+        <Route path="/projects" element={<PlusProjects />} />
+      </Routes>
+      <Options theme={theme} setTheme={setTheme} />
+      <ToastContainer position="bottom-left" />
     </div>
   );
 }

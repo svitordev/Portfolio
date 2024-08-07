@@ -9,8 +9,35 @@ interface ProjectProps {
 }
 const ProjectBox: React.FC<ProjectProps> = ({ item }) => {
   const boxRef = useRef(null);
-  const element = boxRef.current;
-  useIntersectionObserver({element, animate: AnimationBottom, reset: ResetAnimationBottom});
+  useIntersectionObserver({
+    elements: boxRef,
+    animate: AnimationBottom,
+    reset: ResetAnimationBottom,
+  });
+  // useEffect(() => {
+  //   if (!boxRef.current) return;
+
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           AnimationBottom(boxRef.current);
+  //         } else {
+  //           ResetAnimationBottom(boxRef.current);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.8 }
+  //   );
+
+  //   if (boxRef.current) {
+  //     observer.observe(boxRef.current);
+  //   }
+
+  //   return () => {
+  //       observer.disconnect();
+  //   };
+  // }, [boxRef]);
   const par = item.id % 2;
   return (
     <div

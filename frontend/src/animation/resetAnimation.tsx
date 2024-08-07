@@ -1,15 +1,14 @@
 import gsap from "gsap";
-import { AnimationProps } from "./animation";
-const ResetAnimationBottom = ({ element }: AnimationProps) => {
+const ResetAnimationBottom = (element: gsap.TweenTarget) => {
   gsap.to(element, { duration: 1, y: 80, opacity: 0 });
 };
-const ResetAnimationTitulo = ({ element }: AnimationProps) => {
+const ResetAnimationTitulo = (element: gsap.TweenTarget) => {
   gsap.to(element, { duration: 1, y: -50, opacity: 0 });
 };
-const ResetAnimationLeft = ({ element }: AnimationProps) => {
+const ResetAnimationLeft = (element: gsap.TweenTarget) => {
   gsap.to(element, { duration: 1, x: -100, opacity: 0 });
 };
-const ResetAnimationRight = ({ element }: AnimationProps) => {
+const ResetAnimationRight = (element: gsap.TweenTarget) => {
   gsap.to(element, { duration: 1, x: 100, opacity: 0 });
 };
 export { ResetAnimationBottom, ResetAnimationLeft, ResetAnimationRight, ResetAnimationTitulo };

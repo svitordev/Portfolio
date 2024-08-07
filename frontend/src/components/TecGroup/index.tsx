@@ -7,9 +7,15 @@ import { RiNextjsLine } from "react-icons/ri";
 import { SiRedux } from "react-icons/si";
 import { TbBrandVite } from "react-icons/tb";
 function TecGroup() {
-  const tecRef = useRef<HTMLDivElement>(null);
+  const tecRef = useRef(null);
   useEffect(() => {
-    gsap.to(tecRef.current, { duration: 100, x: -500, opacity: 1 });
+    gsap.to(tecRef.current, {
+      duration: 22,
+      x: -500,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
   }, []);
   return (
     <div

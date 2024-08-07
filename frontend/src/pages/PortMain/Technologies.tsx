@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import TecGroup from "../../components/TecGroup";
 
 function Technologies() {
-  const boxRef = useRef<HTMLDivElement>(null);
+  const boxRef = useRef(null);
   useEffect(() => {
     if (boxRef.current) {
       gsap.fromTo(boxRef.current, {

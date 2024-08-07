@@ -1,43 +1,39 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 interface IntersectionObserverProps {
-  element: HTMLElement | null;
-  animate: ({ element }: { element: HTMLElement }) => void;
-  reset: ({ element }: { element: HTMLElement }) => void;
+  elements: React.MutableRefObject<null>;
+  animate: (element: gsap.TweenTarget) => void;
+  reset: (element: gsap.TweenTarget) => void;
 }
 function useIntersectionObserver({
-  element,
+  elements,
   animate,
   reset,
 }: IntersectionObserverProps) {
   useEffect(() => {
-    if (!element) return;
+    if (!elements.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            animate({element});
+            animate(elements.current);
           } else {
-            reset({element});
+            reset(elements.current);
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.4 }
     );
 
-    if (element) {
-      observer.observe(element);
+    if (elements.current) {
+      observer.observe(elements.current);
     }
 
     return () => {
-      if (element) {
-        observer.disconnect();
-      }
+      observer.disconnect();
     };
-  }, [animate, element, reset]);
-
-  return null;
+  }, [elements]);
 }
 
 export default useIntersectionObserver;

@@ -55,17 +55,17 @@ const Contact = ({ theme }: ContactProp) => {
   const pRefLeft = useRef(null);
   const ulRefLeft = useRef(null);
   useIntersectionObserver({
-    element: TitleRefLeft.current,
+    elements: TitleRefLeft,
     animate: AnimationLeft,
     reset: ResetAnimationLeft,
   });
   useIntersectionObserver({
-    element: ulRefLeft.current,
+    elements: ulRefLeft,
     animate: AnimationLeft,
     reset: ResetAnimationLeft,
   });
   useIntersectionObserver({
-    element: pRefLeft.current,
+    elements: pRefLeft,
     animate: AnimationLeft,
     reset: ResetAnimationLeft,
   });
@@ -74,22 +74,22 @@ const Contact = ({ theme }: ContactProp) => {
   const box3right = useRef(null);
   const box4right = useRef(null);
   useIntersectionObserver({
-    element: box1right.current,
+    elements: box1right,
     animate: AnimationRight,
     reset: ResetAnimationRight,
   });
   useIntersectionObserver({
-    element: box2right.current,
+    elements: box2right,
     animate: AnimationRight,
     reset: ResetAnimationRight,
   });
   useIntersectionObserver({
-    element: box3right.current,
+    elements: box3right,
     animate: AnimationRight,
     reset: ResetAnimationRight,
   });
   useIntersectionObserver({
-    element: box4right.current,
+    elements: box4right,
     animate: AnimationRight,
     reset: ResetAnimationRight,
   });

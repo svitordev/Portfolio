@@ -5,23 +5,23 @@ import useIntersectionObserver from "../../intersection";
 import { AnimationLeft, AnimationRight } from "../../animation/animation";
 import { ResetAnimationLeft, ResetAnimationRight } from "../../animation/resetAnimation";
 function AboutMe() {
-  const boxLeft = useRef<HTMLDivElement>(null);
-  const p1 = useRef<HTMLDivElement>(null);
-  const p2 = useRef<HTMLDivElement>(null);
-  const titulo = useRef<HTMLDivElement>(null);
-  useIntersectionObserver({element: boxLeft.current,animate:AnimationLeft,reset:ResetAnimationLeft})
+  const boxLeft = useRef(null);
+  const p1 = useRef(null);
+  const p2 = useRef(null);
+  const titulo = useRef(null);
+  useIntersectionObserver({elements: boxLeft,animate:AnimationLeft,reset:ResetAnimationLeft})
   useIntersectionObserver({
-    element: p1.current,
+    elements: p1,
     animate: AnimationRight,
     reset: ResetAnimationRight,
   });
   useIntersectionObserver({
-    element: p2.current,
+    elements: p2,
     animate: AnimationRight,
     reset: ResetAnimationRight,
   });
   useIntersectionObserver({
-    element: titulo.current,
+    elements: titulo,
     animate: AnimationRight,
     reset: ResetAnimationRight,
   });

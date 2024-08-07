@@ -5,10 +5,11 @@ import { ResetAnimationBottom } from "../../animation/resetAnimation";
 import ProjectBox from "../../components/ProjectBox";
 import { projectsItems } from "../../data/projects";
 import useIntersectionObserver from "../../intersection";
+import { Link } from "react-router-dom";
 function Projects() {
-  const aRef = useRef<HTMLAnchorElement>(null);
+  const aRef = useRef(null);
   useIntersectionObserver({
-    element: aRef.current,
+    elements: aRef,
     animate: AnimationBottom,
     reset: ResetAnimationBottom,
   });
@@ -25,13 +26,13 @@ function Projects() {
           <ProjectBox key={item.id} item={item} />
         ))}
       </div>
-      <a
-        href="#"
+      <Link
+        to="/projects"
         ref={aRef}
         className="border-2 border-blue-600 py-2 px-8 rounded-lg flex items-center gap-2 hover:bg-custom-gradient dark:hover:border-slate-100 hover:border-slate-400 hover:text-slate-200 transition  duration-500 ease-linear"
       >
         Ver Mais <FaPlus />
-      </a>
+      </Link>
     </section>
   );
 }

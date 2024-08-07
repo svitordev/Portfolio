@@ -1,17 +1,64 @@
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { TbBrandGithubFilled } from "react-icons/tb";
-import homeLight from "../../assets/img/structure/homeLight.png";
+import { AnimationBottom, AnimationLeft, AnimationRight } from "../../animation/animation";
+import { ResetAnimationBottom, ResetAnimationLeft, ResetAnimationRight } from "../../animation/resetAnimation";
 import homeDark from "../../assets/img/structure/homeDark.png";
+import homeLight from "../../assets/img/structure/homeLight.png";
 import BoxSocial from "../../components/BoxSociais";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import useIntersectionObserver from "../../intersection";
 interface HomeProp {
   theme: string | null;
 }
 function Home({ theme }: HomeProp) {
-  const imgRef = useRef<HTMLImageElement>(null);
-  const boxRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef(null);
+  const boxRef = useRef(null);
+  const BoxText = useRef(null);
+  const p1 = useRef(null);
+  const p2 = useRef(null);
+  const titulo = useRef(null);
+useIntersectionObserver({
+  elements: imgRef,
+  animate: AnimationRight,
+  reset: ResetAnimationRight,
+});
+useIntersectionObserver({
+  elements: titulo,
+  animate: AnimationLeft,
+  reset: ResetAnimationLeft,
+});
+useIntersectionObserver({
+  elements: p1,
+  animate: AnimationLeft,
+  reset: ResetAnimationLeft,
+});
+useIntersectionObserver({
+  elements: p2,
+  animate: AnimationLeft,
+  reset: ResetAnimationLeft,
+});
+  useIntersectionObserver({
+    elements: boxRef,
+    animate: AnimationBottom,
+    reset: ResetAnimationBottom,
+  });
+
+  useEffect(() => {
+    gsap.fromTo(
+      BoxText.current,
+      {
+        duration: 2,
+        x: -50,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+      }
+    );
+  }, []);
   useEffect(() => {
     gsap.fromTo(
       imgRef.current,
@@ -45,12 +92,14 @@ function Home({ theme }: HomeProp) {
       id="home"
       className="pt-14 md:pt-[5.5rem] px-[10%] flex flex-col md:flex-row justify-between text-center md:text-start"
     >
-      <div className="md:w-3/5 my-16 space-y-2 flex flex-col justify-center">
-        <p className="text-2xl font-condensedItalic">Precisa de um</p>
-        <h1 className="text-5xl font-condensed bg-custom-gradient bg-clip-text text-transparent">
+      <div ref={BoxText} className="md:w-3/5 my-16 space-y-2 flex flex-col justify-center">
+        <p ref={p1} className="text-2xl font-condensedItalic">
+          Precisa de um
+        </p>
+        <h1 ref={titulo} className="text-5xl font-condensed bg-custom-gradient bg-clip-text text-transparent">
           Desenvolvedor Front End
         </h1>
-        <p className="text-2xl font-condensedItalic lg:w-3/5">
+        <p ref={p2} className="text-2xl font-condensedItalic lg:w-3/5">
           Para transformar suas ideias em experiências incríveis?
         </p>
         <div
