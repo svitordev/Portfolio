@@ -26,8 +26,8 @@ function Header() {
         ref={boxRef}
         className="dark:bg-neutral-800 bg-neutral-200 rounded-3xl h-16 flex items-center justify-between  top-6   inset-x-0 mx-auto shadow-md dark:shadow-neutral-950 shadow-slate-300 w-[95%] lg:w-4/5 px-6 lg:px-12"
       >
-        <a className="h-full  items-center inline-flex" href="#home">
-          <img src={logo} alt="logo sVitor.Dev" className="h-4/5" />
+        <a className="h-full w-28 items-center inline-flex" href="#home">
+          <img src={logo} alt="logo sVitor.Dev" className="w-full" />
         </a>
         {width > 767 ? (
           <Menu />
