@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-// import Options from "./components/Options";
+import Options from "./components/Options";
 import PlusProjects from "./pages/PlusProjects";
 import PortMain from "./pages/PortMain";
 function App() {
-  const [theme] = useState("dark");
+  const [theme, setTheme] = useState("dark");
   useEffect(() => {
     const root = document.documentElement;
     root.classList.remove("dark", "light");
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<PortMain theme={theme} />} />
         <Route path="/projects" element={<PlusProjects />} />
       </Routes>
-      {/* <Options theme={theme} setTheme={setTheme} /> */}
+      <Options theme={theme} setTheme={setTheme} />
       <ToastContainer position="bottom-left" />
     </div>
   );
