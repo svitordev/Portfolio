@@ -31,7 +31,7 @@ function Projects() {
         ref={aRef}
         className="border-2 border-blue-600 py-2 px-8 rounded-lg flex items-center gap-2 hover:bg-custom-gradient dark:hover:border-slate-100 hover:border-slate-400 hover:text-slate-200 transition  duration-500 ease-linear"
       >
-        Ver Mais <FaPlus />
+        Ver todos <FaPlus />
       </Link>
     </section>
   );
