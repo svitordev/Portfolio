@@ -1,43 +1,21 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { AnimationBottom } from "../../animation/animation";
 import { ResetAnimationBottom } from "../../animation/resetAnimation";
 import { ProjectsProp } from "../../data/projects";
 import useIntersectionObserver from "../../intersection";
 import Tag from "../Tags";
+
 interface ProjectProps {
   item: ProjectsProp;
 }
-const ProjectBox: React.FC<ProjectProps> = ({ item }) => {
+
+const ProjectBoxComponent: React.FC<ProjectProps> = ({ item }) => {
   const boxRef = useRef(null);
   useIntersectionObserver({
     elements: boxRef,
     animate: AnimationBottom,
     reset: ResetAnimationBottom,
   });
-  // useEffect(() => {
-  //   if (!boxRef.current) return;
-
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           AnimationBottom(boxRef.current);
-  //         } else {
-  //           ResetAnimationBottom(boxRef.current);
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.8 }
-  //   );
-
-  //   if (boxRef.current) {
-  //     observer.observe(boxRef.current);
-  //   }
-
-  //   return () => {
-  //       observer.disconnect();
-  //   };
-  // }, [boxRef]);
   const par = item.id % 2;
   return (
     <div
@@ -88,5 +66,6 @@ const ProjectBox: React.FC<ProjectProps> = ({ item }) => {
     </div>
   );
 };
+const ProjectBox = React.memo(ProjectBoxComponent);
 
 export default ProjectBox;

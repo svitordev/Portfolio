@@ -129,7 +129,7 @@ useIntersectionObserver({
           ref={imgRef}
           src={homeLight}
           alt=""
-          className="md:w-2/5 rounded-md self-end"
+          className="md:w-2/5 xl:w-[35.5%] rounded-md self-end"
         />
       )}
     </section>
