@@ -52,14 +52,14 @@ function Options({ setTheme, theme }: OptionsProp) {
               </button>
             </div>
             <div className="rounded-2xl shadow-md dark:shadow-black shadow-slate-300 w-28 h-11 border-2 dark:border-neutral-800 border-slate-200 flex items-center justify-between px-3 ">
-              <button className="p-0.5 ">
+              <button disabled className="p-0.5 ">
                 <img
                   src={eua}
                   alt=""
                   className="w-[2.15rem] h-8 rounded-full"
                 />
               </button>
-              <button className="p-0.5 ">
+              <button disabled className="p-0.5 ">
                 <img
                   src={brasil}
                   alt=""
