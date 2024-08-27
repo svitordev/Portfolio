@@ -12,7 +12,7 @@ function App() {
     root.classList.add(theme);
   }, [theme]);
   return (
-    <div className="dark:bg-neutral-900 bg-slate-50 text-neutral-700 dark:text-slate-200 min-h-screen">
+    <div className="dark:bg-neutral-900 bg-slate-50 text-neutral-700 dark:text-slate-200 min-h-screen ">
       <Routes>
         <Route path="/" element={<PortMain theme={theme} />} />
         <Route path="/projects" element={<PlusProjects />} />

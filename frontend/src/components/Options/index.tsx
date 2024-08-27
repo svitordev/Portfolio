@@ -64,7 +64,7 @@ function Options({ setTheme, theme }: OptionsProp) {
                   src={brasil}
                   alt=""
                   className="w-[2.15rem] h-8 rounded-full"
-                />
+                 />
               </button>
             </div>
           </div>

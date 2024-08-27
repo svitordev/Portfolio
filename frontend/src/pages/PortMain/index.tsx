@@ -11,7 +11,6 @@ function PortMain({ theme }: PortMainProp) {
   return (
     <>
       <Header />
-
       <Home theme={theme} />
       <Technologies />
       <AboutMe />
