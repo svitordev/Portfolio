@@ -1,9 +1,27 @@
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "../../assets/img/structure/sVitorDev.png";
 import Menu from "../../components/Menu/Menu";
 import MenuMobile from "../../components/Menu/MenuMobile";
 function Header() {
+  const [activeSection, setActiveSection] = useState("");
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      let currentSection: string | null = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 100) {
+          currentSection = section.getAttribute("id");
+        }
+      });
+      setActiveSection(currentSection);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const width = window.innerWidth;
   const boxRef = useRef(null);
   useEffect(() => {
@@ -30,10 +48,10 @@ function Header() {
           <img src={logo} alt="logo sVitor.Dev" className="h-4/5" />
         </a>
         {width > 767 ? (
-          <Menu />
+          <Menu activeSection={activeSection} />
         ) : (
           <div>
-            <MenuMobile />
+            <MenuMobile activeSection={activeSection} />
           </div>
         )}
       </div>
