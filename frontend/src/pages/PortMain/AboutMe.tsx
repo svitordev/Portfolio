@@ -54,7 +54,7 @@ function AboutMe() {
         </p>
 
         <p ref={p2} className="md:w-3/4">
-          Também sou músico á onze anos, onde desenvolvo minhas SoftSkills,
+          Também sou músico há onze anos, onde desenvolvo minhas SoftSkills,
           como: trabalho em equipe, disciplina, persistência, criatividade,
           estudo, resiliência, escuta ativa, memória, empatia, discernimento
           estético e etc.
