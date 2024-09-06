@@ -24,74 +24,58 @@ const Contact = ({ theme }: ContactProp) => {
     reset,
   } = useForm<FormValues>();
 
-  const sendEmail: SubmitHandler<FormValues> = (data) => {
+  const sendEmail: SubmitHandler<FormValues> = async (data) => {
     const templateParams = {
       name: data.name,
       email: data.email,
       message: data.message,
     };
-    emailjs
-      .send(
+    try {
+      await emailjs.send(
         "service_foycaua",
         "template_k0rrk97",
         templateParams,
         "dhKybiheYpgMv58CS"
-      )
-      .then(() => {
-        toast.success("Email enviado com sucesso!", {
-          className:
-            theme === "dark" ? "toast-success-dark" : "toast-success-light",
-        });
-        reset();
-      })
-      .catch(() => {
-        toast.error("Erro ao enviar email.", {
-          className:
-            theme === "dark" ? "toast-error-dark" : "toast-error-light",
-        });
+      );
+      toast.success("Email enviado com sucesso!", {
+        className: `toast-success-${theme === "dark" ? "dark" : "light"}`,
       });
+      reset();
+    } catch (error) {
+      toast.error("Erro ao enviar email.", {
+        className: `toast-error-${theme === "dark" ? "dark" : "light"}`,
+      });
+    }
   };
-  const TitleRefLeft = useRef(null);
-  const pRefLeft = useRef(null);
-  const ulRefLeft = useRef(null);
-  useIntersectionObserver({
-    elements: TitleRefLeft,
-    animate: AnimationLeft,
-    reset: ResetAnimationLeft,
+  const refs = {
+    left: {
+      title: useRef(null),
+      p: useRef(null),
+      ul: useRef(null),
+    },
+    right: {
+      box1: useRef(null),
+      box2: useRef(null),
+      box3: useRef(null),
+      box4: useRef(null),
+    },
+  };
+
+  // Apply animations
+  Object.values(refs.left).forEach((ref) => {
+    useIntersectionObserver({
+      elements: ref,
+      animate: AnimationLeft,
+      reset: ResetAnimationLeft,
+    });
   });
-  useIntersectionObserver({
-    elements: ulRefLeft,
-    animate: AnimationLeft,
-    reset: ResetAnimationLeft,
-  });
-  useIntersectionObserver({
-    elements: pRefLeft,
-    animate: AnimationLeft,
-    reset: ResetAnimationLeft,
-  });
-  const box1right = useRef(null);
-  const box2right = useRef(null);
-  const box3right = useRef(null);
-  const box4right = useRef(null);
-  useIntersectionObserver({
-    elements: box1right,
-    animate: AnimationRight,
-    reset: ResetAnimationRight,
-  });
-  useIntersectionObserver({
-    elements: box2right,
-    animate: AnimationRight,
-    reset: ResetAnimationRight,
-  });
-  useIntersectionObserver({
-    elements: box3right,
-    animate: AnimationRight,
-    reset: ResetAnimationRight,
-  });
-  useIntersectionObserver({
-    elements: box4right,
-    animate: AnimationRight,
-    reset: ResetAnimationRight,
+
+  Object.values(refs.right).forEach((ref) => {
+    useIntersectionObserver({
+      elements: ref,
+      animate: AnimationRight,
+      reset: ResetAnimationRight,
+    });
   });
   return (
     <section
@@ -100,18 +84,18 @@ const Contact = ({ theme }: ContactProp) => {
     >
       <div className="gap-5 flex flex-col md:w-1/2 items-center md:items-start">
         <h2
-          ref={TitleRefLeft}
+          ref={refs.left.title}
           className="text-4xl md:text-5xl  bg-custom-gradient bg-clip-text text-transparent "
         >
           Entre em contato
         </h2>
 
-        <p ref={pRefLeft} className="md:w-3/4">
+        <p ref={refs.left.p} className="md:w-3/4">
           Entre em contato se precisar tirar alguma dúvida ou contratar algum
           tipo de serviço.
         </p>
         <ul
-          ref={ulRefLeft}
+          ref={refs.left.ul}
           className="md:space-y-1 flex md:flex-col items-center justify-center gap-5 md:gap-2"
         >
           <li className="gap-2 items-center flex">
@@ -141,7 +125,7 @@ const Contact = ({ theme }: ContactProp) => {
         className="w-full md:w-2/5 space-y-6"
         onSubmit={handleSubmit(sendEmail)}
       >
-        <div ref={box1right} className="flex flex-col items-start">
+        <div ref={refs.right.box1} className="flex flex-col items-start">
           <label htmlFor="name">Nome:</label>
           <input
             className="w-full border-2 border-blue-600 rounded-md py-1 px-2 text-neutral-700 outline-2 outline-blue-600 bg-slate-100"
@@ -151,7 +135,7 @@ const Contact = ({ theme }: ContactProp) => {
           />
           {errors.name && <span>{errors.name.message}</span>}
         </div>
-        <div ref={box2right} className="flex flex-col items-start">
+        <div ref={refs.right.box2} className="flex flex-col items-start">
           <label htmlFor="email">Email:</label>
           <input
             className="w-full border-2 border-blue-600 rounded-md py-1 px-2 text-neutral-700 outline-2 outline-blue-600 bg-slate-100"
@@ -167,7 +151,7 @@ const Contact = ({ theme }: ContactProp) => {
           />
           {errors.email && <p>{errors.email.message}</p>}
         </div>
-        <div ref={box3right} className="flex flex-col items-start">
+        <div ref={refs.right.box3} className="flex flex-col items-start">
           <label htmlFor="message">Mensagem:</label>
           <textarea
             className="w-full border-2 border-blue-600 rounded-md py-1 px-2 bg-slate-100 text-neutral-700 outline-2 outline-blue-600 h-32"
@@ -179,7 +163,7 @@ const Contact = ({ theme }: ContactProp) => {
           {errors.message && <p>{errors.message.message}</p>}
         </div>
         <button
-          ref={box4right}
+          ref={refs.right.box4}
           className="bg-custom-gradient px-10 py-2 rounded-md border-2 dark:border-neutral-900 border-slate-50 dark:hover:border-white hover:border-neutral-500 text-white"
           type="submit"
         >
