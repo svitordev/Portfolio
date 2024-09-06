@@ -109,7 +109,7 @@ useIntersectionObserver({
           <BoxSocial href="https://www.linkedin.com/in/devsvitor/">
             <FaLinkedinIn />
           </BoxSocial>
-          <BoxSocial href="https://github.com/VTEXsx">
+          <BoxSocial href="https://github.com/svitordev">
             <TbBrandGithubFilled />
           </BoxSocial>
           <BoxSocial href="https://www.instagram.com/svitor.dev/">
