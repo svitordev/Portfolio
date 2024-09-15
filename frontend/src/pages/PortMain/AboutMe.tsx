@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import myPhoto from "../../assets/img/structure/MyPhoto.jpg";
 import ButtonCV from "../../components/ButtonCV";
 import useIntersectionObserver from "../../intersection";
@@ -20,9 +20,9 @@ const AboutMe: React.FC = () => {
     { ref: refs.titulo, animate: AnimationRight, reset: ResetAnimationRight },
   ];
   // Aplicando as animações
-  animationConfig.forEach(({ ref, animate, reset }) => {
+  for (const { ref, animate, reset } of animationConfig) {
     useIntersectionObserver({ elements: ref, animate, reset });
-  });
+  }
 
   return (
     <section

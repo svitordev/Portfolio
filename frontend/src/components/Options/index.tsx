@@ -27,6 +27,7 @@ function Options({ setTheme, theme }: OptionsProp) {
       <button
         onClick={openMoreOptions}
         className="dark:bg-neutral-900 bg-slate-50 hover:text-blue-700 text-blue-900 fixed right-3 lg:right-6 top-[6.1rem] md:top-36 p-2 border-2 hover:border-slate-400 border-slate-300 dark:border-neutral-800 dark:hover:border-neutral-500  rounded-2xl shadow-lg dark:shadow-black shadow-slate-200 transition delay-100 ease-linear z-40"
+        type="button"
       >
         <IoMenu size={35} />
       </button>
@@ -39,6 +40,7 @@ function Options({ setTheme, theme }: OptionsProp) {
                   theme === "light" ? "bg-blue-800 text-slate-200" : ""
                 }`}
                 onClick={toggleThemeLight}
+                type="button"
               >
                 <FiSun size={30} />
               </button>
@@ -46,20 +48,21 @@ function Options({ setTheme, theme }: OptionsProp) {
                 className={`p-0.5 rounded-full ${
                   theme === "dark" ? "bg-blue-800" : ""
                 }`}
-                onClick={toggleThemeDark}
+                onClick={toggleThemeDark} 
+                type="button"
               >
                 <LuMoonStar size={30} />
               </button>
             </div>
             <div className="rounded-2xl shadow-md dark:shadow-black shadow-slate-300 w-28 h-11 border-2 dark:border-neutral-800 border-slate-200 flex items-center justify-between px-3 ">
-              <button disabled className="p-0.5 ">
+              <button disabled className="p-0.5 " type="button">
                 <img
                   src={eua}
                   alt=""
                   className="w-[2.15rem] h-8 rounded-full"
                 />
               </button>
-              <button disabled className="p-0.5 ">
+              <button disabled className="p-0.5 " type="button">
                 <img
                   src={brasil}
                   alt=""
@@ -68,7 +71,7 @@ function Options({ setTheme, theme }: OptionsProp) {
               </button>
             </div>
           </div>
-          <button onClick={closeMoreOptions}>
+          <button onClick={closeMoreOptions} type="button">
             <IoClose size={35} className="hover:text-blue-700 text-blue-900" />
           </button>
         </div>

@@ -1,6 +1,7 @@
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import type { SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { AnimationLeft, AnimationRight } from "../../animation/animation";
@@ -61,22 +62,21 @@ const Contact = ({ theme }: ContactProp) => {
     },
   };
 
-  // Apply animations
-  Object.values(refs.left).forEach((ref) => {
+  for (const ref of Object.values(refs.left)) {
     useIntersectionObserver({
       elements: ref,
       animate: AnimationLeft,
       reset: ResetAnimationLeft,
     });
-  });
+  }
 
-  Object.values(refs.right).forEach((ref) => {
+  for (const ref of Object.values(refs.right)) {
     useIntersectionObserver({
       elements: ref,
       animate: AnimationRight,
       reset: ResetAnimationRight,
     });
-  });
+  }
   return (
     <section
       id="contacts"
@@ -104,6 +104,7 @@ const Contact = ({ theme }: ContactProp) => {
               href="https://www.instagram.com/svitor.dev/"
               className="inline-flex hover:text-blue-500"
               target="_blank"
+              rel="noreferrer"
             >
               svitor.dev
             </a>
@@ -111,9 +112,10 @@ const Contact = ({ theme }: ContactProp) => {
           <li className="gap-2 items-center flex">
             <FaWhatsapp size={20} />
             <a
-              href=""
+              href="https://wa.me/5581984155252"
               className="inline-flex hover:text-blue-500"
               target="_blank"
+              rel="noreferrer"
             >
               WhatsApp
             </a>

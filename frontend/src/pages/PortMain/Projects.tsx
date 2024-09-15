@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, memo } from "react";
 import { FaPlus } from "react-icons/fa";
 import { AnimationBottom } from "../../animation/animation";
 import { ResetAnimationBottom } from "../../animation/resetAnimation";
@@ -6,13 +6,16 @@ import ProjectBox from "../../components/ProjectBox";
 import { projectsItems } from "../../data/projects";
 import useIntersectionObserver from "../../intersection";
 import { Link } from "react-router-dom";
-function Projects() {
-  const aRef = useRef(null);
+
+const Projects = memo(() => {
+  const linkRef = useRef(null);
+
   useIntersectionObserver({
-    elements: aRef,
+    elements: linkRef,
     animate: AnimationBottom,
     reset: ResetAnimationBottom,
   });
+
   return (
     <section
       id="projects"
@@ -28,13 +31,16 @@ function Projects() {
       </div>
       <Link
         to="/projects"
-        ref={aRef}
-        className="border-2 border-blue-600 py-2 px-8 rounded-lg flex items-center gap-2 hover:bg-custom-gradient dark:hover:border-slate-100 hover:border-slate-400 hover:text-slate-200 transition  duration-500 ease-linear"
+        ref={linkRef}
+        className="border-2 border-blue-600 py-2 px-8 rounded-lg flex items-center gap-2 hover:bg-custom-gradient dark:hover:border-slate-100 hover:border-slate-400 hover:text-slate-200 transition duration-500 ease-linear"
+        aria-label="Ver todos os projetos"
       >
-        Ver todos <FaPlus />
+        Ver todos <FaPlus aria-hidden="true" />
       </Link>
     </section>
   );
-}
+});
+
+Projects.displayName = "Projects";
 
 export default Projects;

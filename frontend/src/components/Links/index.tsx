@@ -8,6 +8,7 @@ function LinkMenu({ href, children, isActive }: LinkProps) {
     <li>
       <a
         href={href}
+        rel="noreferrer"
         className={`hover:text-blue-600  text-sm  transition delay-100 ease-linear ${
           isActive ? "text-blue-600" : ""
         }`}

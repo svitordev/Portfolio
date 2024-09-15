@@ -36,8 +36,8 @@ const ProjectBoxComponent: React.FC<ProjectProps> = ({ item }) => {
         <h3 className="text-2xl">{item.title}</h3>
         <p>{item.about}</p>
         <div className="flex gap-2 flex-wrap justify-center md:justify-start">
-          {item.tecnologias.map((tecs, index) => (
-            <Tag key={index}>{tecs}</Tag>
+          {item.tecnologias.map((tecs) => (
+            <Tag key={tecs}>{tecs}</Tag>
           ))}
         </div>
         <div className="flex gap-2 flex-wrap justify-center">

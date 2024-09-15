@@ -2,7 +2,7 @@ import { useState } from "react";
 import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import ButtonCV from "../ButtonCV";
 import LinkMenu from "../Links";
-import { PropsMenu } from "./Menu";
+import type { PropsMenu } from "./Menu";
 
 function MenuMobile({ activeSection }: PropsMenu) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +16,7 @@ function MenuMobile({ activeSection }: PropsMenu) {
   return (
     <div className="relative flex items-center gap-5">
       <ButtonCV height="mob" />
-      <button onClick={openCloseMenu} className="">
+      <button onClick={openCloseMenu} type="button">
         {isOpen ? <HiMenuAlt1 size={35} /> : <HiMenuAlt3 size={35} />}
       </button>
       {isOpen && (

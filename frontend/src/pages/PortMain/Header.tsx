@@ -8,13 +8,13 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
-      let currentSection: string | null = "";
-      sections.forEach((section) => {
+      let currentSection= "";
+      for (const section of sections) {
         const sectionTop = section.offsetTop;
         if (window.scrollY >= sectionTop - 100) {
-          currentSection = section.getAttribute("id");
+          currentSection = section.getAttribute("id") || "";
         }
-      });
+      }
       setActiveSection(currentSection);
     };
     window.addEventListener("scroll", handleScroll);
