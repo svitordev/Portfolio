@@ -61,12 +61,12 @@ function Home({ theme }: HomeProp) {
       id="home"
       className="pt-14 md:pt-[5.5rem] px-[10%] flex flex-col md:flex-row justify-between text-center md:text-start"
     >
-      <div ref={refs.boxText} className="md:w-3/5 my-16 space-y-2 flex flex-col justify-center">
+      <div ref={refs.boxText} className="md:w-1/2 lg:w-3/5 my-16 space-y-2 flex flex-col justify-center">
         <p ref={refs.p1} className="text-2xl font-condensedItalic">
           Precisa de um
         </p>
         <h1 ref={refs.titulo} className="text-5xl font-condensed bg-custom-gradient bg-clip-text text-transparent">
-          Desenvolvedor Front End
+          Desenvolvedor Full stack
         </h1>
         <p ref={refs.p2} className="text-2xl font-condensedItalic lg:w-3/5">
           Para transformar suas ideias em experiências incríveis?
@@ -91,14 +91,14 @@ function Home({ theme }: HomeProp) {
           ref={refs.img}
           src={homeDark}
           alt=""
-          className="md:w-2/5 rounded-md  self-end"
+          className="md:w-3/5 rounded-md  self-end"
         />
       ) : (
         <img
           ref={refs.img}
           src={homeLight}
           alt=""
-          className="md:w-2/5 xl:w-[35.5%] rounded-md self-end"
+          className="md:w-3/5 xl:w-[35.5%] rounded-md self-end"
         />
       )}
     </section>
