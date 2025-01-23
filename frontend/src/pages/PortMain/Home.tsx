@@ -1,50 +1,71 @@
-import gsap from "gsap";
-import { useEffect, useRef, useMemo } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { TbBrandGithubFilled } from "react-icons/tb";
-import { AnimationBottom, AnimationLeft, AnimationRight } from "../../animation/animation";
-import { ResetAnimationBottom, ResetAnimationLeft, ResetAnimationRight } from "../../animation/resetAnimation";
+import { ThemeContext } from "../../App";
 import homeDark from "../../assets/img/structure/homeDark.png";
 import homeLight from "../../assets/img/structure/homeLight.png";
 import BoxSocial from "../../components/BoxSociais";
-import useIntersectionObserver from "../../intersection";
+import {
+  AnimationBottom,
+  AnimationLeft,
+  AnimationRight,
+} from "../../hooks/animation";
+import {
+  ResetAnimationBottom,
+  ResetAnimationLeft,
+  ResetAnimationRight,
+} from "../../hooks/resetAnimation";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import gsap from "gsap";
 
-interface HomeProp {
-  theme: string | null;
-}
-
-function Home({ theme }: HomeProp) {
-  const refs = useMemo(() => ({
-    img: useRef(null),
-    box: useRef(null),
-    boxText: useRef(null),
-    p1: useRef(null),
-    p2: useRef(null),
-    titulo: useRef(null),
-  }), []);
-
-  const observerConfigs = useMemo(() => [
-    { ref: refs.img, animate: AnimationRight, reset: ResetAnimationRight },
-    { ref: refs.titulo, animate: AnimationLeft, reset: ResetAnimationLeft },
-    { ref: refs.p1, animate: AnimationLeft, reset: ResetAnimationLeft },
-    { ref: refs.p2, animate: AnimationLeft, reset: ResetAnimationLeft },
-    { ref: refs.box, animate: AnimationBottom, reset: ResetAnimationBottom },
-  ], [refs]); 
-
-  for (const config of observerConfigs) {
-    useIntersectionObserver({
-      elements: config.ref,
-      animate: config.animate,
-      reset: config.reset,
-    });
+function Home() {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("Home deve ser usado dentro de um ThemeContext.Provider");
   }
+  const { theme } = context;
 
+  const imgRef = useRef<null>(null);
+  const boxRef = useRef<null>(null);
+  const boxTextRef = useRef<null>(null);
+  const p1Ref = useRef<null>(null);
+  const p2Ref = useRef<null>(null);
+  const tituloRef = useRef<null>(null);
+
+  // Configuração dos observadores
+  useIntersectionObserver({
+    elements: imgRef,
+    animate: AnimationRight,
+    reset: ResetAnimationRight,
+  });
+  useIntersectionObserver({
+    elements: tituloRef,
+    animate: AnimationLeft,
+    reset: ResetAnimationLeft,
+  });
+  useIntersectionObserver({
+    elements: p1Ref,
+    animate: AnimationLeft,
+    reset: ResetAnimationLeft,
+  });
+  useIntersectionObserver({
+    elements: p2Ref,
+    animate: AnimationLeft,
+    reset: ResetAnimationLeft,
+  });
+  useIntersectionObserver({
+    elements: boxRef,
+    animate: AnimationBottom,
+    reset: ResetAnimationBottom,
+  });
+
+  // Animações com GSAP
   useEffect(() => {
     const animations = [
-      { ref: refs.boxText, x: -50 },
-      { ref: refs.img, x: 50 },
-      { ref: refs.box, y: 100, duration: 5 },
+      { ref: boxTextRef, x: -50 },
+      { ref: imgRef, x: 50 },
+      { ref: boxRef, y: 100, duration: 5 },
     ];
 
     for (const { ref, x = 0, y = 0, duration = 2 } of animations) {
@@ -54,25 +75,30 @@ function Home({ theme }: HomeProp) {
         { x: 0, y: 0, opacity: 1 }
       );
     }
-  }, [refs]); // Add refs to the dependency array
-
+  }, []);
   return (
     <section
       id="home"
       className="pt-14 md:pt-[5.5rem] px-[10%] flex flex-col md:flex-row justify-between text-center md:text-start"
     >
-      <div ref={refs.boxText} className="md:w-1/2 lg:w-3/5 my-16 space-y-2 flex flex-col justify-center">
-        <p ref={refs.p1} className="text-2xl font-condensedItalic">
+      <div
+        ref={boxTextRef}
+        className="md:w-1/2 lg:w-3/5 my-16 space-y-2 flex flex-col justify-center"
+      >
+        <p ref={p1Ref} className="text-2xl font-condensedItalic">
           Precisa de um
         </p>
-        <h1 ref={refs.titulo} className="text-5xl font-condensed bg-custom-gradient bg-clip-text text-transparent">
+        <h1
+          ref={tituloRef}
+          className="text-5xl font-condensed bg-custom-gradient bg-clip-text text-transparent"
+        >
           Desenvolvedor Full stack
         </h1>
-        <p ref={refs.p2} className="text-2xl font-condensedItalic lg:w-3/5">
+        <p ref={p2Ref} className="text-2xl font-condensedItalic lg:w-3/5">
           Para transformar suas ideias em experiências incríveis?
         </p>
         <div
-          ref={refs.box}
+          ref={boxRef}
           className="flex gap-4 pt-4 justify-center md:justify-start"
         >
           <BoxSocial href="https://www.linkedin.com/in/devsvitor/">
@@ -88,16 +114,16 @@ function Home({ theme }: HomeProp) {
       </div>
       {theme === "dark" ? (
         <img
-          ref={refs.img}
+          ref={imgRef}
           src={homeDark}
-          alt=""
-          className="md:w-3/5 rounded-md  self-end"
+          alt="Ilustração tema escuro"
+          className="md:w-3/5 xl:w-2/5 rounded-md  self-end"
         />
       ) : (
         <img
-          ref={refs.img}
+          ref={imgRef}
           src={homeLight}
-          alt=""
+          alt="Ilustração tema claro"
           className="md:w-3/5 xl:w-[35.5%] rounded-md self-end"
         />
       )}

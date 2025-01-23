@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiSun } from "react-icons/fi";
 import { IoClose, IoMenu } from "react-icons/io5";
 import { LuMoonStar } from "react-icons/lu";
+import { ThemeContext } from "../../App";
 import brasil from "../../assets/img/structure/brasil.jpg";
 import eua from "../../assets/img/structure/eua.jpg";
-interface OptionsProp {
-  theme: string | null;
-  setTheme: (theme: string) => void;
-}
-function Options({ setTheme, theme }: OptionsProp) {
+
+function Options() {
   const [isOpen, setIsOpen] = useState(false);
   function openMoreOptions() {
     setIsOpen(true);
@@ -16,6 +14,13 @@ function Options({ setTheme, theme }: OptionsProp) {
   function closeMoreOptions() {
     setIsOpen(false);
   }
+  const context = useContext(ThemeContext);
+  if (!context ) {
+    throw new Error(
+      "Options deve ser usado dentro de um ThemeContext.Provider"
+    );
+  }
+  const { theme, setTheme } = context;
   function toggleThemeDark() {
     setTheme("dark");
   }
@@ -48,7 +53,7 @@ function Options({ setTheme, theme }: OptionsProp) {
                 className={`p-0.5 rounded-full ${
                   theme === "dark" ? "bg-blue-800" : ""
                 }`}
-                onClick={toggleThemeDark} 
+                onClick={toggleThemeDark}
                 type="button"
               >
                 <LuMoonStar size={30} />
@@ -67,7 +72,7 @@ function Options({ setTheme, theme }: OptionsProp) {
                   src={brasil}
                   alt=""
                   className="w-[2.15rem] h-8 rounded-full"
-                 />
+                />
               </button>
             </div>
           </div>

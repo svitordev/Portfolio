@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import { AnimationBottom } from "../../animation/animation";
-import { ResetAnimationBottom } from "../../animation/resetAnimation";
 import { ProjectsProp } from "../../data/projects";
-import useIntersectionObserver from "../../intersection";
+import { AnimationBottom } from "../../hooks/animation";
+import { ResetAnimationBottom } from "../../hooks/resetAnimation";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 import Tag from "../Tags";
 
 interface ProjectProps {

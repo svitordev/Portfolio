@@ -4,18 +4,15 @@ import Header from "./Header";
 import Home from "./Home";
 import Projects from "./Projects";
 import Technologies from "./Technologies";
-interface PortMainProp {
-  theme: string | null;
-}
-function PortMain({ theme }: PortMainProp) {
+function PortMain() {
   return (
     <>
       <Header />
-      <Home theme={theme} />
+      <Home  />
       <Technologies />
       <AboutMe />
       <Projects />
-      <Contact theme={theme} />
+      <Contact />
     </>
   );
 }

@@ -1,10 +1,10 @@
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { BiLogoTailwindCss, BiLogoTypescript } from "react-icons/bi";
-import { FaCss3Alt, FaHtml5, FaReact } from "react-icons/fa";
+import { FaCss3Alt, FaHtml5, FaNode, FaReact } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import { RiNextjsLine } from "react-icons/ri";
-import { SiRedux } from "react-icons/si";
+import { SiMysql, SiRedux } from "react-icons/si";
 import { TbBrandVite } from "react-icons/tb";
 function TecGroup() {
   const tecRef = useRef(null);
@@ -27,10 +27,12 @@ function TecGroup() {
       <IoLogoJavascript />
       <BiLogoTypescript className="text-[4.3rem]" />
       <FaReact />
-      <SiRedux />
-      <BiLogoTailwindCss />
       <RiNextjsLine />
       <TbBrandVite />
+      <SiRedux className="text-[3.5rem]" />
+      <BiLogoTailwindCss />
+      <SiMysql />
+      <FaNode />
     </div>
   );
 }

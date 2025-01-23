@@ -1,12 +1,12 @@
 import { useRef } from "react";
-import { AnimationLeft, AnimationRight } from "../../animation/animation";
+import myPhoto from "../../assets/img/structure/MyPhoto.jpg";
+import ButtonCV from "../../components/ButtonCV";
+import { AnimationLeft, AnimationRight } from "../../hooks/animation";
 import {
   ResetAnimationLeft,
   ResetAnimationRight,
-} from "../../animation/resetAnimation";
-import myPhoto from "../../assets/img/structure/MyPhoto.jpg";
-import ButtonCV from "../../components/ButtonCV";
-import useIntersectionObserver from "../../intersection";
+} from "../../hooks/resetAnimation";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 const AboutMe: React.FC = () => {
   const refs = {
     boxLeft: useRef(null),
@@ -53,17 +53,11 @@ const AboutMe: React.FC = () => {
 
         <p ref={refs.p1} className="md:w-3/4">
           Me chamo Vítor Silva e sou desenvolvedor full stack com um ano de
-          experiência na área. Possuo habilidades em
-          <span className="text-blue-600"> React, </span>
-          <span className="text-blue-600">NextJS, </span>
-          <span className="text-blue-600">Redux, </span>
-          <span className="text-blue-600">JavaScript, </span>
-          <span className="text-blue-600">TypeScript, </span>
-          <span className="text-blue-600">Tailwind CSS, </span>
-          <span className="text-blue-600">API REST, </span>
-          <span className="text-blue-600">MySQL, </span>
-          <span className="text-blue-600">API REST </span>
-          <span className="text-blue-600">NodeJS.</span>
+          experiência na área. Possuo habilidades em{" "}
+          <span className="text-blue-600">
+            React, NextJS, ContextAPI, Redux, JavaScript, TypeScript, Tailwind
+            CSS, MySQL, API REST e NodeJS.
+          </span>
         </p>
 
         <p ref={refs.p2} className="md:w-3/4">

@@ -1,23 +1,30 @@
 import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { toast } from "react-toastify";
-import { AnimationLeft, AnimationRight } from "../../animation/animation";
-import { ResetAnimationLeft, ResetAnimationRight } from "../../animation/resetAnimation";
 import ButtonCV from "../../components/ButtonCV";
-import useIntersectionObserver from "../../intersection";
+import { AnimationLeft, AnimationRight } from "../../hooks/animation";
+import {
+  ResetAnimationLeft,
+  ResetAnimationRight,
+} from "../../hooks/resetAnimation";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import { ThemeContext } from "../../App";
 
 type FormValues = {
   name: string;
   email: string;
   message: string;
 };
-interface ContactProp {
-  theme: string | null;
+
+const Contact = () => {
+const context = useContext(ThemeContext);
+if (!context) {
+  throw new Error("Contact deve ser usado dentro de um ThemeContext.Provider");
 }
-const Contact = ({ theme }: ContactProp) => {
+const { theme } = context;
   const {
     register,
     handleSubmit,

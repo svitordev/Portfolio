@@ -1,11 +1,11 @@
-import { useRef, memo } from "react";
+import { memo, useRef } from "react";
 import { FaPlus } from "react-icons/fa";
-import { AnimationBottom } from "../../animation/animation";
-import { ResetAnimationBottom } from "../../animation/resetAnimation";
+import { Link } from "react-router-dom";
 import ProjectBox from "../../components/ProjectBox";
 import { projectsItems } from "../../data/projects";
-import useIntersectionObserver from "../../intersection";
-import { Link } from "react-router-dom";
+import { AnimationBottom } from "../../hooks/animation";
+import { ResetAnimationBottom } from "../../hooks/resetAnimation";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 
 const Projects = memo(() => {
   const linkRef = useRef(null);
