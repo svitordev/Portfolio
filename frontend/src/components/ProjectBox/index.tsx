@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { ProjectsProp } from "../../data/projects";
 import { AnimationBottom } from "../../hooks/animation";
 import { ResetAnimationBottom } from "../../hooks/resetAnimation";
@@ -10,6 +11,7 @@ interface ProjectProps {
 }
 
 const ProjectBoxComponent: React.FC<ProjectProps> = ({ item }) => {
+  const { t } = useTranslation();
   const boxRef = useRef(null);
   useIntersectionObserver({
     elements: boxRef,
@@ -33,7 +35,7 @@ const ProjectBoxComponent: React.FC<ProjectProps> = ({ item }) => {
       </video>
 
       <div className="w-full flex flex-col md:items-start md:justify-start space-y-3">
-        <h3 className="text-2xl">{item.title}</h3>
+        <h3 className="text-2xl uppercase">{item.title}</h3>
         <p>{item.about}</p>
         <div className="flex gap-2 flex-wrap justify-center md:justify-start">
           {item.tecnologias.map((tecs) => (
@@ -58,7 +60,7 @@ const ProjectBoxComponent: React.FC<ProjectProps> = ({ item }) => {
               rel="noreferrer"
               className="border-2 border-orange-500 hover:bg-blue-600 hover:border-gray-300 hover:text-slate-50 px-4 py-2 rounded-lg text-sm "
             >
-              Repositório
+              {t("projects.btnReposi")}
             </a>
           )}
         </div>

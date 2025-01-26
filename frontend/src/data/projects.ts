@@ -1,3 +1,4 @@
+import { TFunction } from "i18next";
 export interface ProjectsProp {
   id: number;
   src: string;
@@ -7,13 +8,12 @@ export interface ProjectsProp {
   deploy: string;
   repositorio: string;
 }
-export const projectsItems: ProjectsProp[] = [
+export const getProjectsData = (t: TFunction): ProjectsProp[] => [
   {
     id: 1,
     src: "https://pub-4680d0543609450f9429afc4681a1e69.r2.dev/vitor/projects/acs.mp4",
-    title: "ACS - Site institucional",
-    about:
-      "Site institucional criado voluntariamente para a Associação Cultural Surubinense, com o intuito de divulgar a cultura e história da cidade de Surubim-PE e seus projetos.",
+    title: t("projects.acs.title"),
+    about: t("projects.acs.description"),
     tecnologias: ["HTML5", "CSS3", "JavaScript"],
     deploy: "https://acs.art.br",
     repositorio: "",
@@ -21,9 +21,8 @@ export const projectsItems: ProjectsProp[] = [
   {
     id: 2,
     src: "https://pub-4680d0543609450f9429afc4681a1e69.r2.dev/vitor/projects/softPet.mp4",
-    title: "SoftPet - Sistema de PetShop",
-    about:
-      "Sistema de gerenciamento de petshop, desenvolvido a partir de um design figma, com o intuito de facilitar a gestão de um petshop, com funcionalidades de cadastro de clientes, animais, serviços e relatórios.",
+    title: t("projects.softPet.title"),
+    about: t("projects.softPet.description"),
     tecnologias: [
       "NextJS",
       "React",
@@ -42,9 +41,8 @@ export const projectsItems: ProjectsProp[] = [
   {
     id: 3,
     src: "https://pub-4680d0543609450f9429afc4681a1e69.r2.dev/vitor/projects/catalogo.mp4",
-    title: "Catalogo",
-    about:
-      "Catalogo de produtos, com o intuito de facilitar a visualização de produtos e suas informações, adicionar ao carrinho e fazer pedido enviando diretamente para o Whatsapp do dono.",
+    title: t("projects.Catalogo.title"),
+    about: t("projects.Catalogo.description"),
     tecnologias: ["Vite", "React", "Redux", "JavaScript", "Tailwind CSS"],
     deploy: "https://catalogo-two.vercel.app/",
     repositorio: "https://github.com/svitordev/Catalogo",
@@ -52,9 +50,8 @@ export const projectsItems: ProjectsProp[] = [
   {
     id: 4,
     src: "https://pub-4680d0543609450f9429afc4681a1e69.r2.dev/vitor/projects/cadastroFusion.mp4",
-    title: "Cadastro de Usuários - Fusion",
-    about:
-      "Sistema de cadastro e login desenvolvido como desafio no projeto Fusion Frontend que tem como objetivo ajudar desenvolvedores iniciantes a ganhar experiência de trabalhar em equipe voluntariamente.",
+    title: t("projects.cadastroLoginFusion.title"),
+    about: t("projects.cadastroLoginFusion.description"),
     tecnologias: [
       "Vite",
       "React",
@@ -70,13 +67,13 @@ export const projectsItems: ProjectsProp[] = [
       "https://github.com/svitordev/desafio-formulario-com-validacao-frontend",
   },
 ];
-export const PlusProjectsData: ProjectsProp[] = [
+
+export const getPlusProjectsData = (t: TFunction): ProjectsProp[] => [
   {
     id: 5,
     src: "https://pub-4680d0543609450f9429afc4681a1e69.r2.dev/vitor/projects/galleryFusion.mp4",
-    title: "Gallery Fusion",
-    about:
-      "Galeria de imagens desenvolvido como desafio no projeto Fusion Frontend que tem como objetivo ajudar desenvolvedores iniciantes a ganhar experiência de trabalhar em equipe voluntariamente.",
+    title: t("projects.galeriaFusion.title"),
+    about: t("projects.galeriaFusion.description"),
     tecnologias: [
       "Vite",
       "React",
@@ -94,12 +91,10 @@ export const PlusProjectsData: ProjectsProp[] = [
   {
     id: 6,
     src: "https://pub-4680d0543609450f9429afc4681a1e69.r2.dev/vitor/projects/calInvest.mp4",
-    title: "Calculadora de Investimentos",
-    about:
-      "Calculadora de investimentos, com o intuito de ajudar na escolha do melhor investimento para o seu dinheiro, com base no valor inicial, aporte mensal, tempo de investimento e rentabilidade.",
+    title: t("projects.calcInvest.title"),
+    about: t("projects.calcInvest.description"),
     tecnologias: ["Vite", "React", "JavaScript", "Tailwind CSS", "ChartJS"],
     deploy: "https://calculadora-investimento-coral.vercel.app/",
     repositorio: "https://github.com/svitordev/CalculadoraInvestimento",
   },
 ];
-export const AllProjectsData: ProjectsProp[] = projectsItems.concat( PlusProjectsData );

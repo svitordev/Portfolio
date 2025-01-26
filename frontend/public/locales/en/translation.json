@@ -1,0 +1,59 @@
+{
+  "btnCV": "Download CV",
+  "nav": {
+    "navSobre": "about",
+    "navProjetos": "projects",
+    "navContato": "contact"
+  },
+  "home": {
+    "p1": "Do you need a",
+    "devFS": "Full Stack Developer",
+    "p2": "to turn your ideas into amazing experiences?"
+  },
+  "about": {
+    "title": "About Me",
+    "p1": "My name is Vítor Silva, and I am a full-stack developer with one year of experience in the field. I have skills in ",
+    "spanTecs": "React, NextJS, ContextAPI, Redux, JavaScript, TypeScript, Tailwind CSS, MySQL, REST API, and NodeJS.",
+    "p2": "I am also a musician with eleven years of experience, which has helped me develop my soft skills, such as teamwork, discipline, persistence, creativity, learning, resilience, active listening, memory, empathy, aesthetic discernment, and more."
+  },
+  "projects": {
+    "title": "My Projects",
+    "btnReposi": "Repository",
+    "btnPlusProjects": "See all",
+    "btnBack": "To go back",
+    "acs": {
+      "title": "ACS - Institutional Website",
+      "description": "An institutional website created voluntarily for the Associação Cultural Surubinense to promote the culture and history of Surubim-PE and its projects."
+    },
+    "softPet": {
+      "title": "SoftPet - PetShop Management System",
+      "description": "A pet shop management system developed from a Figma design to simplify pet shop management, with functionalities for customer registration, animals, services, and reports."
+    },
+    "Catalogo": {
+      "title": "Product Catalog",
+      "description": "A product catalog designed to facilitate the visualization of products and their details, allowing customers to add items to the cart and place orders directly via WhatsApp."
+    },
+    "cadastroLoginFusion": {
+      "title": "User Registration - Fusion",
+      "description": "A user registration and login system developed as a challenge in the Fusion Frontend project, aiming to help beginner developers gain team experience voluntarily."
+    },
+    "galeriaFusion": {
+      "title": "Fusion Gallery",
+      "description": "An image gallery developed as a challenge in the Fusion Frontend project, aiming to help beginner developers gain team experience voluntarily."
+    },
+    "calcInvest": {
+      "title": "Investment Calculator",
+      "description": "An investment calculator designed to help choose the best investment for your money, based on the initial amount, monthly contribution, investment duration, and profitability."
+    }
+  },
+  "footer": {
+    "title": "Get in Touch",
+    "p": "Feel free to reach out if you have any questions or need to hire a service.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "btnSend": "Send"
+    }
+  }
+}

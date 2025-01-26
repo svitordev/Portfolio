@@ -92,7 +92,7 @@ const { theme } = context;
       <div className="gap-5 flex flex-col md:w-1/2 items-center md:items-start">
         <h2
           ref={refs.left.title}
-          className="text-4xl md:text-5xl  bg-custom-gradient bg-clip-text text-transparent "
+          className="text-4xl md:text-5xl  bg-custom-gradient bg-clip-text text-transparent uppercase"
         >
           Entre em contato
         </h2>

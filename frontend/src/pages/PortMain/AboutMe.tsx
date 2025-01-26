@@ -46,7 +46,7 @@ const AboutMe: React.FC = () => {
       <div className="flex flex-col items-center md:items-end gap-4 md:w-3/5">
         <h2
           ref={refs.titulo}
-          className="text-4xl md:text-5xl bg-custom-gradient bg-clip-text text-transparent "
+          className="text-4xl md:text-5xl bg-custom-gradient bg-clip-text text-transparent uppercase"
         >
           Sobre mim
         </h2>

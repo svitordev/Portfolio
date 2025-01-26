@@ -90,7 +90,7 @@ function Home() {
         </p>
         <h1
           ref={tituloRef}
-          className="text-5xl font-condensed bg-custom-gradient bg-clip-text text-transparent"
+          className="text-5xl font-condensed bg-custom-gradient bg-clip-text text-transparent uppercase"
         >
           Desenvolvedor Full stack
         </h1>

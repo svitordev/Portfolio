@@ -1,0 +1,59 @@
+{
+  "btnCV": "Baixar CV",
+  "nav": {
+    "navSobre": "sobre",
+    "navProjetos": "projetos",
+    "navContato": "contato"
+  },
+  "home": {
+    "p1": "Precisa de um",
+    "devFS": "Desenvolvedor Full Stack",
+    "p2": "Para transformar suas ideias em experiências incríveis?"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "p1": "Me chamo Vítor Silva e sou desenvolvedor full stack com um ano de experiência na área. Possuo habilidades em ",
+    "spanTecs": "React, NextJS, ContextAPI, Redux, JavaScript, TypeScript, Tailwind CSS, MySQL, REST API e NodeJS.",
+    "p2": "Também sou músico há onze anos, onde desenvolvo minhas SoftSkills, como: trabalho em equipe, disciplina, persistência, criatividade, estudo, resiliência, escuta ativa, memória, empatia, discernimento estético e etc."
+  },
+  "projects": {
+    "title": "Meus Projetos",
+    "btnReposi": "Repositório",
+    "btnPlusProjects":"Ver todos",
+    "btnBack":"Voltar",
+    "acs": {
+      "title": "ACS - Site institucional",
+      "description": "Site institucional criado voluntariamente para a Associação Cultural Surubinense, com o intuito de divulgar a cultura e história da cidade de Surubim-PE e seus projetos."
+    },
+    "softPet": {
+      "title": "SoftPet - Sistema de PetShop",
+      "description": "Sistema de gerenciamento de petshop, desenvolvido a partir de um design figma, com o intuito de facilitar a gestão de um petshop, com funcionalidades de cadastro de clientes, animais, serviços e relatórios."
+    },
+    "Catalogo": {
+      "title": "Catalogo de produtos",
+      "description": "Catalogo de produtos, com o intuito de facilitar a visualização de produtos e suas informações, adicionar ao carrinho e fazer pedido enviando diretamente para o Whatsapp da loja."
+    },
+    "cadastroLoginFusion": {
+      "title": "Cadastro de Usuários - Fusion",
+      "description": "Sistema de cadastro e login desenvolvido como desafio no projeto Fusion Frontend que tem como objetivo ajudar desenvolvedores iniciantes a ganhar experiência de trabalhar em equipe voluntariamente."
+    },
+    "galeriaFusion": {
+      "title": "Fusion Galeria",
+      "description": "Galeria de imagens desenvolvido como desafio no projeto Fusion Frontend que tem como objetivo ajudar desenvolvedores iniciantes a ganhar experiência de trabalhar em equipe voluntariamente."
+    },
+    "calcInvest": {
+      "title": "Calculadora de Investimentos",
+      "description": "Calculadora de investimentos, com o intuito de ajudar na escolha do melhor investimento para o seu dinheiro, com base no valor inicial, aporte mensal, tempo de investimento e rentabilidade."
+    }
+  },
+  "footer": {
+    "title": "Entre em contato",
+    "p":"Entre em contato se precisar tirar alguma dúvida ou contratar algum tipo de serviço.",
+    "form":{
+      "name":"Nome",
+      "email":"Email",
+      "message":"Mensagem",
+      "btnSend":"Enviar"
+    }
+  }
+}
