@@ -8,7 +8,7 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section");
-      let currentSection= "";
+      let currentSection = "";
       for (const section of sections) {
         const sectionTop = section.offsetTop;
         if (window.scrollY >= sectionTop - 100) {

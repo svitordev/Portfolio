@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
+
 interface LinkProps {
   height?: string;
 }
 function ButtonCV({ height }: LinkProps) {
+  const { t } = useTranslation();
   return (
     <a
       href="/curriculo_vitor.pdf"
@@ -12,7 +15,7 @@ function ButtonCV({ height }: LinkProps) {
         height === "mob" ? "px-4" : ""
       } border-2 hover:border-blue-600 text-base hover:bg-white  hover:text-blue-600 text-blue-800 border-blue-800 rounded-full  py-2 bg-slate-100  font-condensed shadow-md dark:shadow-black shadow-slate-300 transition delay-100 ease-linear flex justify-center flex-shrink-0`}
     >
-      BAIXAR CV
+      {t("btnCV")}
     </a>
   );
 }

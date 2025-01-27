@@ -1,9 +1,9 @@
 {
   "btnCV": "Baixar CV",
   "nav": {
-    "navSobre": "sobre",
-    "navProjetos": "projetos",
-    "navContato": "contato"
+    "sobre": "sobre",
+    "projetos": "projetos",
+    "contato": "contato"
   },
   "home": {
     "p1": "Precisa de um",
@@ -51,7 +51,6 @@
     "p":"Entre em contato se precisar tirar alguma dúvida ou contratar algum tipo de serviço.",
     "form":{
       "name":"Nome",
-      "email":"Email",
       "message":"Mensagem",
       "btnSend":"Enviar"
     }

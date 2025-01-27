@@ -18,8 +18,10 @@ import {
 } from "../../hooks/resetAnimation";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 import gsap from "gsap";
+import { useTranslation } from "react-i18next";
 
 function Home() {
+  const { t } = useTranslation();
   const context = useContext(ThemeContext);
   if (!context) {
     throw new Error("Home deve ser usado dentro de um ThemeContext.Provider");
@@ -79,23 +81,23 @@ function Home() {
   return (
     <section
       id="home"
-      className="pt-14 md:pt-[5.5rem] px-[10%] flex flex-col md:flex-row justify-between text-center md:text-start"
+      className="pt-14 md:pt-[5.5rem] px-[10%] md:px-[5%] flex flex-col md:flex-row justify-between text-center md:text-start"
     >
       <div
         ref={boxTextRef}
         className="md:w-1/2 lg:w-3/5 my-16 space-y-2 flex flex-col justify-center"
       >
         <p ref={p1Ref} className="text-2xl font-condensedItalic">
-          Precisa de um
+          {t("home.p1")}
         </p>
         <h1
           ref={tituloRef}
           className="text-5xl font-condensed bg-custom-gradient bg-clip-text text-transparent uppercase"
         >
-          Desenvolvedor Full stack
+          {t("home.devFS")}
         </h1>
         <p ref={p2Ref} className="text-2xl font-condensedItalic lg:w-3/5">
-          Para transformar suas ideias em experiências incríveis?
+          {t("home.p2")}
         </p>
         <div
           ref={boxRef}

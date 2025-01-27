@@ -3,6 +3,7 @@ import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 import ButtonCV from "../ButtonCV";
 import LinkMenu from "../Links";
 import type { PropsMenu } from "./Menu";
+import { useTranslation } from "react-i18next";
 
 function MenuMobile({ activeSection }: PropsMenu) {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ function MenuMobile({ activeSection }: PropsMenu) {
       setIsOpen(true);
     }
   };
+  const { t } = useTranslation();
   return (
     <div className="relative flex items-center gap-5">
       <ButtonCV height="mob" />
@@ -21,18 +23,18 @@ function MenuMobile({ activeSection }: PropsMenu) {
       </button>
       {isOpen && (
         <nav className="absolute font-bold font-condensed py-6 w-40 dark:bg-neutral-800 bg-neutral-200 -right-6 top-16 rounded-xl transition delay-200 duration-200 ease-in-out">
-          <ul className="gap-4 flex flex-col items-center">
+          <ul className="gap-4 flex flex-col items-center uppercase">
             <LinkMenu href="#home" isActive={activeSection === "home"}>
               HOME
             </LinkMenu>
             <LinkMenu href="#aboutme" isActive={activeSection === "aboutme"}>
-              SOBRE
+              {t("nav.sobre")}
             </LinkMenu>
             <LinkMenu href="#projects" isActive={activeSection === "projects"}>
-              PROJETOS
+              {t("nav.projetos")}
             </LinkMenu>
             <LinkMenu href="#contacts" isActive={activeSection === "contacts"}>
-              CONTATO
+              {t("nav.contato")}
             </LinkMenu>
           </ul>
         </nav>

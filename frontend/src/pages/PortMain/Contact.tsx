@@ -2,8 +2,10 @@ import emailjs from "@emailjs/browser";
 import { useContext, useRef } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { ThemeContext } from "../../App";
 import ButtonCV from "../../components/ButtonCV";
 import { AnimationLeft, AnimationRight } from "../../hooks/animation";
 import {
@@ -11,7 +13,6 @@ import {
   ResetAnimationRight,
 } from "../../hooks/resetAnimation";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
-import { ThemeContext } from "../../App";
 
 type FormValues = {
   name: string;
@@ -20,11 +21,14 @@ type FormValues = {
 };
 
 const Contact = () => {
-const context = useContext(ThemeContext);
-if (!context) {
-  throw new Error("Contact deve ser usado dentro de um ThemeContext.Provider");
-}
-const { theme } = context;
+  const { t } = useTranslation();
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error(
+      "Contact deve ser usado dentro de um ThemeContext.Provider"
+    );
+  }
+  const { theme } = context;
   const {
     register,
     handleSubmit,
@@ -92,14 +96,13 @@ const { theme } = context;
       <div className="gap-5 flex flex-col md:w-1/2 items-center md:items-start">
         <h2
           ref={refs.left.title}
-          className="text-4xl md:text-5xl  bg-custom-gradient bg-clip-text text-transparent uppercase"
+          className="text-4xl md:text-5xl  bg-custom-gradient bg-clip-text text-transparent uppercase text-start"
         >
-          Entre em contato
+          {t("footer.title")}
         </h2>
 
         <p ref={refs.left.p} className="md:w-3/4">
-          Entre em contato se precisar tirar alguma dúvida ou contratar algum
-          tipo de serviço.
+          {t("footer.p")}
         </p>
         <ul
           ref={refs.left.ul}
@@ -135,7 +138,7 @@ const { theme } = context;
         onSubmit={handleSubmit(sendEmail)}
       >
         <div ref={refs.right.box1} className="flex flex-col items-start">
-          <label htmlFor="name">Nome:</label>
+          <label htmlFor="name">{t("footer.form.name")}:</label>
           <input
             className="w-full border-2 border-blue-600 rounded-md py-1 px-2 text-neutral-700 outline-2 outline-blue-600 bg-slate-100"
             type="text"
@@ -161,7 +164,7 @@ const { theme } = context;
           {errors.email && <p>{errors.email.message}</p>}
         </div>
         <div ref={refs.right.box3} className="flex flex-col items-start">
-          <label htmlFor="message">Mensagem:</label>
+          <label htmlFor="message">{t("footer.form.message")}:</label>
           <textarea
             className="w-full border-2 border-blue-600 rounded-md py-1 px-2 bg-slate-100 text-neutral-700 outline-2 outline-blue-600 h-32"
             id="message"
@@ -176,7 +179,7 @@ const { theme } = context;
           className="bg-custom-gradient px-10 py-2 rounded-md border-2 dark:border-neutral-900 border-slate-50 dark:hover:border-white hover:border-neutral-500 text-white"
           type="submit"
         >
-          Enviar
+          {t("footer.form.btnSend")}
         </button>
       </form>
     </section>

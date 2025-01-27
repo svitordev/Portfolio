@@ -1,9 +1,9 @@
 {
   "btnCV": "Download CV",
   "nav": {
-    "navSobre": "about",
-    "navProjetos": "projects",
-    "navContato": "contact"
+    "sobre": "about",
+    "projetos": "projects",
+    "contato": "contact"
   },
   "home": {
     "p1": "Do you need a",
@@ -47,11 +47,10 @@
     }
   },
   "footer": {
-    "title": "Get in Touch",
+    "title": "contact me",
     "p": "Feel free to reach out if you have any questions or need to hire a service.",
     "form": {
       "name": "Name",
-      "email": "Email",
       "message": "Message",
       "btnSend": "Send"
     }

@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import myPhoto from "../../assets/img/structure/MyPhoto.jpg";
 import ButtonCV from "../../components/ButtonCV";
 import { AnimationLeft, AnimationRight } from "../../hooks/animation";
@@ -8,6 +9,7 @@ import {
 } from "../../hooks/resetAnimation";
 import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 const AboutMe: React.FC = () => {
+  const { t } = useTranslation();
   const refs = {
     boxLeft: useRef(null),
     p1: useRef(null),
@@ -48,23 +50,16 @@ const AboutMe: React.FC = () => {
           ref={refs.titulo}
           className="text-4xl md:text-5xl bg-custom-gradient bg-clip-text text-transparent uppercase"
         >
-          Sobre mim
+          {t("about.title")}
         </h2>
 
         <p ref={refs.p1} className="md:w-3/4">
-          Me chamo Vítor Silva e sou desenvolvedor full stack com um ano de
-          experiência na área. Possuo habilidades em{" "}
-          <span className="text-blue-600">
-            React, NextJS, ContextAPI, Redux, JavaScript, TypeScript, Tailwind
-            CSS, MySQL, API REST e NodeJS.
-          </span>
+          {t("about.p1")}
+          <span className="text-blue-600">{t("about.spanTecs")}</span>
         </p>
 
         <p ref={refs.p2} className="md:w-3/4">
-          Também sou músico há onze anos, onde desenvolvo minhas SoftSkills,
-          como: trabalho em equipe, disciplina, persistência, criatividade,
-          estudo, resiliência, escuta ativa, memória, empatia, discernimento
-          estético e etc.
+          {t("about.p2")}
         </p>
       </div>
     </section>
