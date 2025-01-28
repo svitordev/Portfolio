@@ -81,7 +81,7 @@ function Home() {
   return (
     <section
       id="home"
-      className="pt-14 md:pt-[5.5rem] px-[10%] md:px-[5%] lg:px-[5%] xl:px-[10%] flex flex-col md:flex-row justify-between text-center md:text-start"
+      className="pt-14 md:pt-[5.5rem] px-[10%] md:px-[5%] lg:px-[10%] flex flex-col md:flex-row justify-between text-center md:text-start"
     >
       <div
         ref={boxTextRef}
@@ -96,7 +96,7 @@ function Home() {
         >
           {t("home.devFS")}
         </h1>
-        <p ref={p2Ref} className="text-2xl font-condensedItalic lg:w-4/5">
+        <p ref={p2Ref} className="text-2xl font-condensedItalic lg:w-5/5">
           {t("home.p2")}
         </p>
         <div
