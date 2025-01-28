@@ -27,7 +27,7 @@ const ProjectBoxComponent: React.FC<ProjectProps> = ({ item }) => {
       }`}
     >
       <video
-        className="md:w-[45%] h-full  border-2 hover:border-slate-400 border-slate-300 dark:border-neutral-800 dark:hover:border-neutral-500  rounded-2xl shadow-lg shadow-gray-400 dark:shadow-gray-800"
+        className="md:w-[45%] h-full  border-2 hover:border-slate-400 border-slate-300 dark:border-neutral-800 dark:hover:border-neutral-500  rounded-2xl shadow-lg shadow-gray-400 dark:shadow-neutral-950"
         controls
       >
         <source src={item.src} type="video/mp4" />

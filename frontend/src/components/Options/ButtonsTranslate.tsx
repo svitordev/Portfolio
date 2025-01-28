@@ -22,7 +22,7 @@ function ButtonsTranslate() {
           src={eua}
           alt=""
           className={`w-8 h-8 rounded-full ${
-            language === "en" && "outline outline-3 outline-blue-800"
+            language === "en" && "outline outline-2 outline-blue-800"
           }`}
         />
       </button>
@@ -35,7 +35,7 @@ function ButtonsTranslate() {
           src={brasil}
           alt=""
           className={`w-8 h-8 rounded-full ${
-            language === "pt" && "outline outline-3 outline-blue-800"
+            language === "pt" && "outline outline-2 outline-blue-800"
           }`}
         />
       </button>

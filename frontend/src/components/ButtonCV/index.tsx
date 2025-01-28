@@ -4,11 +4,21 @@ interface LinkProps {
   height?: string;
 }
 function ButtonCV({ height }: LinkProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
+
   return (
     <a
-      href="/curriculo_vitor.pdf"
-      download="devFrontendVitorSilvaCV.pdf"
+      href={
+        language === "pt"
+          ? "/locales/pt/svitordev.pt.pdf"
+          : "/locales/en/svitordev.en.pdf"
+      }
+      download={
+        language === "pt"
+          ? "svitordev.pt.pdf"
+          : "svitordev.en.pdf"
+      }
       className={`${height === "full" ? "w-48" : ""} ${
         height === "micro" ? "w-36" : ""
       } ${
