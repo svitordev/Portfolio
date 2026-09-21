@@ -58,3 +58,43 @@ Você pode baixar meu currículo diretamente pela interface do portfólio ou cli
 - 💼 LinkedIn: [linkedin.com/in/svitordev](https://www.linkedin.com/in/devsvitor/)  
 - 🐙 GitHub: [github.com/svitordev](https://github.com/svitordev)  
 - ✉️ Email: [svitor.dev@gmail.com](mailto:svitor.dev@gmail.com)
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+Portfolio/
+├── AGENTS.md           ← Fonte de verdade para agentes IA
+├── PROJETO.md          ← Visão do projeto em pt-BR
+├── docs/
+│   └── decision-log.md ← Registro de decisões arquiteturais
+├── memory-bank/        ← Notas do projeto
+└── frontend/           ← Aplicação React
+    ├── src/            ← Código fonte
+    ├── public/         ← Arquivos estáticos (traduções, imagens)
+    └── package.json    ← Dependências e scripts
+```
+
+---
+
+## 🚀 Instalação e Execução Local
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+O servidor de desenvolvimento será iniciado em `http://localhost:5173`.
+
+---
+
+## 🛠️ Build e Deploy
+
+```bash
+npm run build    # Build de produção (gera dist/)
+npm run preview  # Preview da build local
+```
+
+O deploy é feito automaticamente na Vercel via push no branch `main`.
